@@ -3,6 +3,7 @@ package mx.uv.usuarios.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import mx.uv.usuarios.dto.PostDTO;
 import mx.uv.usuarios.services.UsuariosService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/productos")
 public class ProductoController {
@@ -24,7 +26,7 @@ public class ProductoController {
 
     @GetMapping(value = "/greet")
     public String greet(){
-        return "Hola";
+        return "Hola productos";
     }
 
     @GetMapping(value = "/list")

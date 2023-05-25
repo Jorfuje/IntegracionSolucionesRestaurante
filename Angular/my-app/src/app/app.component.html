@@ -1,0 +1,56 @@
+<h1>Consumiendo datos de API</h1>
+
+<div class="container mt-5">
+  <ul>
+
+    <li *ngFor="let user of userList">Name: {{user.nombre}}, categoria: {{user.categoria}}, cantidad: {{user.cantidad}}
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-6">
+  <h3>Nuevo Producto</h3>
+
+  <form class="mt-5" (ngSubmit)="create()" [formGroup]="formulario">
+    <div class="mb-3">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre" >
+      <label for="categoria">Categoria</label>
+      <input id="categoria" type="text" placeholder="Categoria" class="form-control" formControlName="categoria">
+      <label for="cantidad">Cantidad</label>
+      <input id="cantidad" type="number" placeholder="Cantidad" class="form-control" formControlName="cantidad">
+    </div>
+
+    <div class="text-end">
+      <button class="btn btn-primary">Crear</button>
+    </div>
+  </form>
+</div>
+
+<!--<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Mis Empleados</h3>
+
+      <table class="mt-5 table table-hover">
+        <head>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Cantidad</th>
+          </tr>
+          <tbody>
+            <tr *ngFor="let user of userList">
+              <td>{{user.nombre}}</td>
+              <td>{{user.categoria}}</td>
+              <td>{{user.cantidad}}</td>
+            </tr>
+          </tbody>
+        </head>
+      </table>
+
+    </div>
+
+    <div class="col-md-6"></div>
+  </div>
+</div> -->
