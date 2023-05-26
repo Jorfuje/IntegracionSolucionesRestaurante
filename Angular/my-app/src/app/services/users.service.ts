@@ -11,11 +11,19 @@ export class UsersService {
   }
 
   getUsers(): any {
-    return this.http.get('http://localhost:8080/productos/list');
+    return this.http.get('http://localhost:8080/productos');
   }
 
   create(data: any) {
-    return this.http.post('http://localhost:8080/productos/add', data);
+    return this.http.post('http://localhost:8080/productos', data);
   }
 
+  delete(id: number) {
+    return this.http.delete(`http://localhost:8080/productos/${id}`);
+  }
+
+  modify(data: any) {
+    return this.http.post('http://localhost:8080/productos', data);
+  }
+  
 }

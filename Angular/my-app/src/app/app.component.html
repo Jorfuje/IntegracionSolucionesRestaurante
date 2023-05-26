@@ -1,5 +1,3 @@
-<h1>Consumiendo datos de API</h1>
-
 <!--div class="container mt-5">
   <ul>
 
@@ -26,24 +24,83 @@
     </div>
   </form>
 </div> -->
+
+
+
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6">
       <h3>Mis Productos</h3>
 
-      <table class="mt-5 table table-hover">
-          <tr>
-            <th>Nombre</th>
-            <th>Categoria</th>
-            <th>Cantidad</th>
+      <table class="table table-striped">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let user of userList; let i = index">
+            <td>{{user.id}}</td>
+            <td>{{user.nombre}}</td>
+            <td>{{user.categoria}}</td>
+            <td>{{user.cantidad}}</td>
+            <td><button class="btn btn-success" (click)="modifyUser(formulario)">Actualizar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
           </tr>
-          <tbody>
-            <tr *ngFor="let user of userList">
-              <td>{{user.nombre}}</td>
-              <td>{{user.categoria}}</td>
-              <td>{{user.cantidad}}</td>
-            </tr>
-          </tbody>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col-md-6"></div> 
+  </div>
+
+  <div class="container mt-6">
+    <h3>Nuevo Producto</h3>
+
+    <form class="mt-5" (ngSubmit)="create()" [formGroup]="formulario">
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+        <label for="categoria">Categoria</label>
+        <input id="categoria" type="text" placeholder="Categoria" class="form-control" formControlName="categoria">
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" type="number" placeholder="Cantidad" class="form-control" formControlName="cantidad">
+      </div>
+
+      <div class="text-end">
+        <button class="btn btn-primary">Crear</button>
+      </div>
+      
+    </form>
+  </div>
+</div>
+
+
+<!-- <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Mis Productos</h3>
+
+      <table class="table table-striped">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let user of userList; let i = index">
+            <td>{{user.id}}</td>
+            <td>{{user.nombre}}</td>
+            <td>{{user.categoria}}</td>
+            <td>{{user.cantidad}}</td>
+            <td><button class="btn btn-success" (click)="modifyUser(user.id, formulario)">Actualizar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
+          </tr>
+        </tbody>
       </table>
 
     </div>
@@ -52,22 +109,22 @@
   </div>
 
   <div class="container mt-6">
-    <h3>Nuevo Producto</h3>
-  
-    <form class="mt-5" (ngSubmit)="create()" [formGroup]="formulario">
+    <h3>Modificar Producto</h3>
+
+    <form class="mt-5" (ngSubmit)="modifyUser" [formGroup]="formulario">
       <div class="mb-3">
         <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre" >
+        <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
         <label for="categoria">Categoria</label>
         <input id="categoria" type="text" placeholder="Categoria" class="form-control" formControlName="categoria">
         <label for="cantidad">Cantidad</label>
         <input id="cantidad" type="number" placeholder="Cantidad" class="form-control" formControlName="cantidad">
       </div>
-  
+
       <div class="text-end">
-        <button class="btn btn-primary">Crear</button>
+        <button class="btn btn-success">Guardar</button>
       </div>
+
     </form>
   </div>
-</div>
-
+</div> -->

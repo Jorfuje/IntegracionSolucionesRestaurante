@@ -37,4 +37,33 @@ export class AppComponent implements OnInit {
         this.getUsers();
       })
   }
+
+  deleteUser(id: number) {
+    this.userService.delete(id)
+      .subscribe(() => {
+        this.getUsers();
+      });
+      this.getUsers();
+  }
+
+   modifyUser(id: number) {
+    this.userService.modify(id, this.formulario.value)
+      .subscribe(() => {
+        this.getUsers();
+      })
+      this.getUsers();
+  } 
+
+ /*  modifyUser(id: number, formulario: any) {
+    let user = this.userList.find(u => u.id == id);
+    if (user) {
+      this.formulario.patchValue({
+        id: user.id,
+        nombre: user.nombre,
+        categoria: user.categoria,
+        cantidad: user.cantidad
+      });
+    }
+  } */
+
 }
