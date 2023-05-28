@@ -1,18 +1,56 @@
-<!--div class="container mt-5">
-  <ul>
+<div class="container">
+  <button class="btn btn-primary" style="margin-bottom: 5px;">Agregar</button>
 
-    <li *ngFor="let user of userList">Name: {{user.nombre}}, categoria: {{user.categoria}}, cantidad: {{user.cantidad}}
-    </li>
-  </ul>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Cantidad</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let producto of productos; index as i">
+        <th scope="row">{{producto.id}}</th>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.categoria}}</td>
+        <td>{{producto.cantidad}}</td>
+        <td><button class="btn btn-success" >Actualizar</button></td>
+        <td><button class="btn btn-danger">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+</div>
+
+
+
+
+
+<!--</div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{modal.titulo}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-template>
+
+<div class="col-md-6"></div>
 </div>
 
 <div class="container mt-6">
   <h3>Nuevo Producto</h3>
 
-  <form class="mt-5" (ngSubmit)="create()" [formGroup]="formulario">
+  <form class="mt-5">
     <div class="mb-3">
       <label for="nombre">Nombre</label>
-      <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre" >
+      <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
       <label for="categoria">Categoria</label>
       <input id="categoria" type="text" placeholder="Categoria" class="form-control" formControlName="categoria">
       <label for="cantidad">Cantidad</label>
@@ -22,61 +60,10 @@
     <div class="text-end">
       <button class="btn btn-primary">Crear</button>
     </div>
+
   </form>
-</div> -->
-
-
-
-
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-6">
-      <h3>Mis Productos</h3>
-
-      <table class="table table-striped">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Categoria</th>
-          <th scope="col">Cantidad</th>
-        </tr>
-        <tbody>
-          <tr *ngFor="let user of userList; let i = index">
-            <td>{{user.id}}</td>
-            <td>{{user.nombre}}</td>
-            <td>{{user.categoria}}</td>
-            <td>{{user.cantidad}}</td>
-            <td><button class="btn btn-success" (click)="modifyUser(formulario)">Actualizar</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <div class="col-md-6"></div> 
-  </div>
-
-  <div class="container mt-6">
-    <h3>Nuevo Producto</h3>
-
-    <form class="mt-5" (ngSubmit)="create()" [formGroup]="formulario">
-      <div class="mb-3">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
-        <label for="categoria">Categoria</label>
-        <input id="categoria" type="text" placeholder="Categoria" class="form-control" formControlName="categoria">
-        <label for="cantidad">Cantidad</label>
-        <input id="cantidad" type="number" placeholder="Cantidad" class="form-control" formControlName="cantidad">
-      </div>
-
-      <div class="text-end">
-        <button class="btn btn-primary">Crear</button>
-      </div>
-      
-    </form>
-  </div>
 </div>
+</div>-->
 
 
 <!-- <div class="container mt-5">

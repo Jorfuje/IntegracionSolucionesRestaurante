@@ -25,6 +25,29 @@ public class ProductoService {
         return productoRepository.save(producto);
     }
 
+    // cambios
+    /*public ProductoModel modificarProducto(ProductoModel producto) {
+        return productoRepository.save(producto);
+    }*/
+
+    
+    public ProductoModel modificarProducto(ProductoModel producto) {
+        // fetch the existing product by id
+        ProductoModel existingProducto = productoRepository.findById(producto.getId()).orElse(null);
+        
+        if (existingProducto != null) {
+            // update the existing product with the new values
+            existingProducto.setNombre(producto.getNombre());
+            existingProducto.setCategoria(producto.getCategoria());
+            existingProducto.setCantidad(producto.getCantidad());
+            
+            // save the updated product to the database
+            return productoRepository.save(existingProducto);
+        }
+        
+        return null;
+    }
+
     public Optional<ProductoModel> obtenerPorId(Integer id) {
         return productoRepository.findById(id);
     }
