@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import mx.uv.inventario.models.ProductoModel;
 import mx.uv.inventario.services.ProductoService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/productos")
 public class ProductoController {

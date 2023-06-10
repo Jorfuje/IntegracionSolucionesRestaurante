@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre del producto" formControlName="nombre">
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <input type="text" class="form-control" placeholder="Categoría del producto" formControlName="categoria">
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="text" class="form-control" placeholder="Cantidad del producto" formControlName="cantidad">
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+<app-footer></app-footer>
